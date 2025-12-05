@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rituel de Style Canva AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        magic: {
+                            green: '#10b981',
+                        },
+                        parchment: {
+                            light: '#fef3c7',
+                            border: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite;
+            /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4 text-gray-800">
+
+    <div id="app-container"
+        class="bg-white w-full max-w-3xl rounded-xl shadow-xl overflow-hidden p-6 md:p-10 transition-all duration-300">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="font-serif text-3xl md:text-4xl text-gold-600 font-bold mb-2">Rituel de Style Canva AI</h1>
+            <p class="text-gray-500 italic">Le guide du Vieux Grimoire</p>
+        </header>
+
+        <!-- Dynamic Content -->
+        <div id="step-content" class="min-h-[300px] flex flex-col justify-center fade-in">
+            <!-- Content will be injected here by JS -->
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center mt-10 pt-6 border-t border-gray-100">
+            <button id="prev-btn"
+                class="px-6 py-2 rounded-lg text-gray-500 hover:text-gray-800 hover:bg-gray-100 transition-colors font-medium hidden">
+                ← Précédent
+            </button>
+            <div id="step-indicator" class="text-sm text-gray-400 font-medium">
+                <!-- Step X/7 -->
+            </div>
+            <button id="next-btn"
+                class="px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white shadow-md transition-all font-semibold flex items-center gap-2">
+                <span id="next-btn-text">Commencer</span>
+                <div id="loading-spinner" class="spinner hidden"></div>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
